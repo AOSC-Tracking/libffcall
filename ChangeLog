@@ -1,3 +1,52 @@
+2023-02-09  Bruno Haible  <bruno@clisp.org>
+
+	Fix compilation error with ISO C 23 compliant compilers.
+	Note: The parameter list (...) was introduced in C23, for compatibility
+	with C++. See ISO C 23 § 6.7.6.(1) definition of parameter-type-list and
+	<https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2975.pdf>.
+	* trampoline/trampoline.h (trampoline_function_t): For ISO C23, use the
+	same syntax as for C++.
+	* callback/trampoline_r/trampoline_r.h (__TR_function): Likewise.
+	* callback/trampoline_r/test1.c (function): Likewise.
+	* callback/trampoline_r/test2.c (function): Likewise.
+	* callback/callback.h (callback_t): Likewise.
+
+2022-07-18  Bruno Haible  <bruno@clisp.org>
+
+	Make autopull.sh more suited for continuous integration.
+	* autopull.sh: Support option --one-time.
+
+2022-07-18  Bruno Haible  <bruno@clisp.org>
+
+	Move gnulib-tool invocation back from autopull.sh to autogen.sh.
+	* autogen.sh: Revert last change regarding gnulib. Improve comments.
+	* autopull.sh: Only call 'gitsub.sh pull' and fetch libtool.
+
+2022-07-17  Bruno Haible  <bruno@clisp.org>
+
+	Split autogen.sh into autopull.sh and autogen.sh.
+	* autopull.sh: New file, based on autogen.sh.
+	* autogen.sh: Remove code that was moved to autopull.sh. Remove
+	--skip-gnulib option.
+	* Makefile.in (SOURCE_FILES): Add README-hacking, autogen.sh.
+	* README-hacking: Mention autopull.sh.
+
+2022-05-22  Bruno Haible  <bruno@clisp.org>
+
+	Add GNU Project notice.
+	* JOIN-GNU: New file. Inspired by a suggestion from José E. Marchesi
+	on the gnu-prog-discuss mailing list.
+	* README: Refer to it.
+	* Makefile.in (SOURCE_FILES): Add it.
+
+2022-05-15  Bruno Haible  <bruno@clisp.org>
+
+	Switch to libtool 2.4.7.
+	* autogen.sh (LIBTOOL_VERSION): Set to 2.4.7.
+	* libtool-patches/libtool-midnightbsd-fix.diff: Remove file.
+	* libtool-patches/README: Don't mention it.
+	* Makefile.maint (libtool-imported-files): Don't apply it.
+
 2022-05-08  Bruno Haible  <bruno@clisp.org>
 
 	loongarch: Use the now-released GCC 12.
