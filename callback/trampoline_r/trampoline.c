@@ -326,7 +326,7 @@ static int open_noinherit (const char *filename, int flags, int mode)
 #define TRAMP_LENGTH 32
 #define TRAMP_ALIGN 8
 #endif
-#ifdef __loongarch64__
+#ifdef __loongarch_lp64
 #define TRAMP_LENGTH 32
 #define TRAMP_ALIGN 8
 #endif
@@ -1262,7 +1262,7 @@ __TR_function alloc_trampoline_r (__TR_function address, void* data0, void* data
 #define tramp_data(function)  \
   (*(unsigned long *) (function +16))
 #endif
-#ifdef __loongarch64__
+#ifdef __loongarch_lp64
   /* function:
    *    pcaddu12i $r12,0		1C00000C
    *    ld.d $r20,$r12,16		28C04194
@@ -1438,7 +1438,7 @@ __TR_function alloc_trampoline_r (__TR_function address, void* data0, void* data
   __asm__ __volatile__ ("fence.i");
 #endif
 #endif
-#if defined(__loongarch64__)
+#if defined(__loongarch_lp64)
   /* Use the GCC built-in. It expands to 'ibar 0'. */
   __clear_cache((void*)function_x,(void*)(function_x+TRAMP_CODE_LENGTH));
 #endif

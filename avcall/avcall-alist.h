@@ -197,7 +197,7 @@ typedef struct
   float			fargs[__AV_FARG_NUM];
   double		dargs[__AV_FARG_NUM];
 #endif
-#if defined(__riscv32__) || defined(__riscv64__) || defined(__loongarch64__)
+#if defined(__riscv32__) || defined(__riscv64__) || defined(__loongarch_lp64)
 #define __AV_FARG_NUM 8
   /* store the floating-point arguments in an extra array */
   unsigned int		fanum;		/* number of fargs[] words that are occupied so far */

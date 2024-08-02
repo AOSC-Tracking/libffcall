@@ -84,7 +84,7 @@ register void* env __asm__("r0");
 #if defined(__riscv32__) || defined(__riscv64__)
 register void* env __asm__("t2");
 #endif
-#ifdef __loongarch64__
+#ifdef __loongarch_lp64
 register void* env __asm__("r20");
 #endif
 
